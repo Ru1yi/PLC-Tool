@@ -41,7 +41,7 @@
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>5.15.2_msvc2019_64</QtInstall>
+    <QtInstall>6.8.0_msvc2022_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -60,8 +60,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>E:\Code\A_Github_Repo\PLC-Tool\Snap7Tool\PlcControl\SnapLib;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Code\A_Github_Repo\PLC-Tool\Snap7Tool\PlcControl\SnapLib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <IncludePath>E:\Code\A_Github_Repo\PLC-Tool\Snap7Tool\PlcControl\SnapLib;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Code\A_Github_Repo\PLC-Tool\Snap7Tool\PlcControl\SnapLib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -95,8 +99,17 @@
     <QtRcc Include="Snap7Tool.qrc" />
     <QtUic Include="Snap7Tool.ui" />
     <QtMoc Include="Snap7Tool.h" />
+    <ClCompile Include="PlcControl\PlcControl.cpp" />
+    <ClCompile Include="PlcControl\SnapLib\snap7.cpp" />
     <ClCompile Include="Snap7Tool.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PlcControl\PlcControl.h" />
+    <ClInclude Include="PlcControl\SnapLib\snap7.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PlcControl\config.ini" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

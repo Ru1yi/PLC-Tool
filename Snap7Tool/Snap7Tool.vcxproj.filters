@@ -40,5 +40,22 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PlcControl\SnapLib\snap7.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlcControl\PlcControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PlcControl\SnapLib\snap7.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlcControl\PlcControl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PlcControl\config.ini" />
   </ItemGroup>
 </Project>
