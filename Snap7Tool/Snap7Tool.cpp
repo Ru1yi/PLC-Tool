@@ -5,13 +5,8 @@ Snap7Tool::Snap7Tool(QWidget* parent)
 {
 	ui.setupUi(this);
 
-	try {
-		GlobalPlc = new PlcControl();
-		GlobalPlc->PlcConnectInit();
-	}
-	catch (...) {
-
-	}
+	GlobalPlc = new PlcControl();
+	GlobalPlc->PlcConnectInit();
 }
 
 Snap7Tool::~Snap7Tool()
@@ -28,8 +23,8 @@ void Snap7Tool::on_pushButton_ReadInt_clicked()
 
 		readInt = GlobalPlc->DBRead_Int(dbNumber.toInt(), start.toInt());
 	}
-	catch (std::exception& e) {
-		qDebug() << e.what();
+	catch (...) {
+		QMessageBox::warning(this, "Read int failed", "Please try again!");
 	}
 	QString time = QTime::currentTime().toString("[hh:mm:ss]->");
 	QString text = "Read int from DB[" + dbNumber + "] " + "start[" + start + "]: " + QString::number(readInt);
@@ -48,8 +43,8 @@ void Snap7Tool::on_pushButton_ReadString_clicked()
 
 		readString = GlobalPlc->DBRead_String(dbNumber.toInt(), start.toInt());
 	}
-	catch (std::exception& e) {
-		qDebug() << e.what();
+	catch (...) {
+		QMessageBox::warning(this, "Read string failed", "Please try again!");
 	}
 	QString time = QTime::currentTime().toString("[hh:mm:ss]->");
 	QString text = "Read string from DB[" + dbNumber + "] " + "start[" + start + "]: " + QString::fromStdString(readString);
@@ -69,8 +64,8 @@ void Snap7Tool::on_pushButton_WriteInt_clicked()
 
 		GlobalPlc->DBWrite_Int(dbNumber.toInt(), start.toInt(), writeInt);
 	}
-	catch (std::exception& e) {
-		qDebug() << e.what();
+	catch (...) {
+		QMessageBox::warning(this, "Write int failed", "Please try again!");
 	}
 	QString time = QTime::currentTime().toString("[hh:mm:ss]->");
 	QString text = "Write int to DB[" + dbNumber + "] " + "start[" + start + "]: " + QString::number(writeInt);
@@ -92,8 +87,8 @@ void Snap7Tool::on_pushButton_WriteString_clicked()
 
 		GlobalPlc->DBWrite_String(dbNumber.toInt(), start.toInt(), writeString.toStdString(), maxLength.toInt());
 	}
-	catch (std::exception& e) {
-		qDebug() << e.what();
+	catch (...) {
+		QMessageBox::warning(this, "Write string failed", "Please try again!");
 	}
 	QString time = QTime::currentTime().toString("[hh:mm:ss]->");
 	QString text = "Write string to DB[" + dbNumber + "] " + "start[" + start + "]: " + writeString;

@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QDebug>
 #include <QDateTime>
+#include <QMessageBox>
 
 #include "ui_Snap7Tool.h"
 #include "PlcControl/PlcControl.h"

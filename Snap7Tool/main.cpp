@@ -4,7 +4,14 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Snap7Tool w;
-    w.show();
-    return a.exec();
+
+    try {
+        Snap7Tool w;
+        w.show();
+        return a.exec();
+    }
+    catch (...) {
+        QMessageBox::critical(nullptr, "PLC connection failed", "Please check plc settings!");
+        a.quit();
+    }     
 }
